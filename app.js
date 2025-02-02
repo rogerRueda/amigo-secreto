@@ -7,6 +7,9 @@ function agregarAmigo() {
     //alerta para validar que el campo no este vacío
     if (nombreAmigo.trim() === "") {
         alert("Por favor, inserte un nombre");
+    //alerta para verificar que no este duplicado el nombre
+    } else if (amigos.includes(nombreAmigo)) {
+        alert("El amigo ya se encuentra en la lista");
     } else {
         amigos.push(nombreAmigo);
         document.querySelector("#amigo").value = "";
