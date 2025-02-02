@@ -3,12 +3,13 @@ let amigos = [];
 
 //Agregamos una funcion para agregar los nombres de los amigos
 function agregarAmigo() {
-    let nombreAmigo = document.getElementById("amigo").value;
+    let nombreAmigo = document.getElementById("amigo").value.trim();
+    let nombreNormalizado = nombreAmigo.toLowerCase();
     //alerta para validar que el campo no este vacío
-    if (nombreAmigo.trim() === "") {
+    if (nombreAmigo === "") {
         alert("Por favor, inserte un nombre");
     //alerta para verificar que no este duplicado el nombre
-    } else if (amigos.includes(nombreAmigo)) {
+    } else if (amigos.some(amigo => amigo.toLowerCase() === nombreNormalizado)) {
         alert("El amigo ya se encuentra en la lista");
     } else {
         amigos.push(nombreAmigo);
